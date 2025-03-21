@@ -53,15 +53,15 @@ fun HomeScreen(
         }
     }
 
-    // Sử dụng Box để nền gradient bao phủ toàn bộ màn hình
+
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(
                 brush = Brush.verticalGradient(
                     colors = listOf(
-                        Color(0xFF9AC6F3),  // Màu xanh nhạt phía trên
-                        Color(0xFF294A91)   // Màu xanh đậm phía dưới
+                        Color(0xFF9AC6F3),
+                        Color(0xFF294A91)
                     )
                 )
             ),
@@ -85,7 +85,7 @@ fun HomeScreen(
                     .fillMaxWidth()
                     .height(55.dp)
                     .clip(RoundedCornerShape(8.dp))
-                    .background(Color.LightGray), // Màu nền của ô nhập
+                    .background(Color.LightGray),
                 contentAlignment = Alignment.CenterStart
             ) {
                 Row(
@@ -94,21 +94,21 @@ fun HomeScreen(
                         .padding(horizontal = 12.dp, vertical = 8.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    // Icon tìm kiếm bên trái
+
                     Icon(
                         imageVector = Icons.Default.Search,
                         contentDescription = "Search Icon",
                         tint = Color.Black
                     )
 
-                    Spacer(modifier = Modifier.width(8.dp)) // Khoảng cách giữa icon và textfield
+                    Spacer(modifier = Modifier.width(8.dp))
 
-                    // Ô nhập văn bản (Dùng BasicTextField để không có line đen)
+
                     BasicTextField(
                         value = city,
                         onValueChange = { setCity(it) },
                         modifier = Modifier
-                            .weight(1f) // Chiếm hết phần trống
+                            .weight(1f)
                             .background(Color.Transparent),
                         singleLine = true,
                         textStyle = TextStyle(
