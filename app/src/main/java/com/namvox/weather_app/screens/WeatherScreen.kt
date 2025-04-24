@@ -72,7 +72,12 @@ fun WeatherScreen(
                 )
                 Spacer(modifier = Modifier.width(10.dp))
                 Column {
-                    Text(text = locationName, color = Color.White, fontWeight = FontWeight.Bold, fontSize = 22.sp)
+                    Text(
+                        text = locationName,
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 22.sp
+                    )
                     Text(text = country, color = Color.Gray)
                 }
             }
@@ -81,13 +86,24 @@ fun WeatherScreen(
                 val data = hourlyForecasts as BaseModel.Success
                 val temp = data.data.first().temperature
                 Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                    Text(text = "${temp.value}°", fontWeight = FontWeight.Bold, fontSize = 80.sp, color = Color.White, fontFamily = russoFont)
+                    Text(
+                        text = "${temp.value}°",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 80.sp,
+                        color = Color.White,
+                        fontFamily = russoFont
+                    )
                 }
             }
             AnimatedVisibility(visible = hourlyForecasts is BaseModel.Loading) { Loading() }
 
             Spacer(modifier = Modifier.height(16.dp))
-            Text("Thời tiết hàng giờ:", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 18.sp)
+            Text(
+                "Thời tiết hàng giờ:",
+                color = Color.White,
+                fontWeight = FontWeight.Bold,
+                fontSize = 18.sp
+            )
             Spacer(modifier = Modifier.height(10.dp))
             AnimatedVisibility(visible = hourlyForecasts is BaseModel.Success) {
                 val data = hourlyForecasts as BaseModel.Success
@@ -101,7 +117,10 @@ fun WeatherScreen(
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center
                         ) {
-                            Text(text = SimpleDateFormat("H a").format(Date(forecast.epochDateTime * 1000)), color = Color.Gray)
+                            Text(
+                                text = SimpleDateFormat("H a").format(Date(forecast.epochDateTime * 1000)),
+                                color = Color.Gray
+                            )
                             Spacer(modifier = Modifier.height(8.dp))
                             AsyncImage(
                                 modifier = Modifier.size(70.dp),
@@ -117,7 +136,12 @@ fun WeatherScreen(
                 }
             }
             Spacer(modifier = Modifier.height(16.dp))
-            Text("Thời tiết hàng ngày:", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 18.sp)
+            Text(
+                "Thời tiết hàng ngày:",
+                color = Color.White,
+                fontWeight = FontWeight.Bold,
+                fontSize = 18.sp
+            )
             Spacer(modifier = Modifier.height(10.dp))
             AnimatedVisibility(visible = dailyForecasts is BaseModel.Success) {
                 val data = dailyForecasts as BaseModel.Success
@@ -138,11 +162,25 @@ fun WeatherScreen(
                             }.format(Date(forecast.epochDate * 1000)).toInt()
                             Text(text = "$day", color = Color.White)
                             Row {
-                                Icon(Icons.Sharp.ArrowDownward, tint = Color(0xffff5353), contentDescription = null)
-                                Text(text = "${forecast.temperature.min.value}°", color = Color.White)
+                                Icon(
+                                    Icons.Sharp.ArrowDownward,
+                                    tint = Color(0xffff5353),
+                                    contentDescription = null
+                                )
+                                Text(
+                                    text = "${forecast.temperature.min.value}°",
+                                    color = Color.White
+                                )
                                 Spacer(modifier = Modifier.width(6.dp))
-                                Icon(Icons.Sharp.ArrowUpward, tint = Color(0xff2eff8c), contentDescription = null)
-                                Text(text = "${forecast.temperature.max.value}°", color = Color.White)
+                                Icon(
+                                    Icons.Sharp.ArrowUpward,
+                                    tint = Color(0xff2eff8c),
+                                    contentDescription = null
+                                )
+                                Text(
+                                    text = "${forecast.temperature.max.value}°",
+                                    color = Color.White
+                                )
                             }
                             AsyncImage(
                                 modifier = Modifier.size(70.dp),

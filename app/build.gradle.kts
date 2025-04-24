@@ -60,8 +60,10 @@ dependencies {
 
     // Koin
 
-    implementation ("io.insert-koin:koin-android:3.5.3")
-    implementation ("io.insert-koin:koin-androidx-compose:3.5.3")
+    
+        implementation("io.insert-koin:koin-android:3.5.0") // Phiên bản mới nhất
+        implementation("io.insert-koin:koin-core:3.5.0")
+
 
 // Retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
@@ -78,6 +80,11 @@ dependencies {
 
 // Material Icons Extended
     implementation ("androidx.compose.material:material-icons-extended:1.6.8")
+
+    implementation ("androidx.core:core-ktx:1.10.1")
+    implementation ("androidx.appcompat:appcompat:1.6.1")
+    implementation ("com.google.android.gms:play-services-location:21.0.1")
+
 
 //
 //        implementation(platform("androidx.compose:compose-bom:2023.10.00")) // Cập nhật BOM Compose

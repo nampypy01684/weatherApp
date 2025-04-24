@@ -1,6 +1,7 @@
 package com.namvox.weather_app.repositories
 
 import com.namvox.weather_app.models.BaseModel
+import com.namvox.weather_app.models.CurrentWeather
 import com.namvox.weather_app.models.DailyForecasts
 import com.namvox.weather_app.models.HourlyForecast
 import com.namvox.weather_app.models.Location
@@ -15,7 +16,7 @@ class WeatherRepoImpl(private val api: Api) : WeatherRepo {
     }
 
     override suspend fun getDailyForecasts(locationKey: String): BaseModel<DailyForecasts> {
-         return request {
+        return request {
             api.getDailyForecasts(locationKey = locationKey)
 
         }
@@ -24,6 +25,21 @@ class WeatherRepoImpl(private val api: Api) : WeatherRepo {
     override suspend fun getHourlyForecasts(locationKey: String): BaseModel<List<HourlyForecast>> {
         return request {
             api.getHourlyForecasts(locationKey = locationKey)
+        }
+    }
+
+    override suspend fun getCurrentConditions(locationKey: String): BaseModel<List<CurrentWeather>> {
+        return request {
+            api.getCurrentConditions(locationKey = locationKey)
+        }
+    }
+
+    override suspend fun getLocationByCoordinates(
+        latitude: Double,
+        longitude: Double
+    ): BaseModel<Location> {
+        return request {
+            api.getLocationByCoordinates(coordinates = "$latitude,$longitude")
         }
     }
 }

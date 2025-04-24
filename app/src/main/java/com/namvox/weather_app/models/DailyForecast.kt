@@ -8,14 +8,14 @@ data class DailyForecast(
     @SerializedName("EpochDate")
     val epochDate: Long,
     @SerializedName("Temperature")
-    val temperature: Temperature,
+    val temperature: Temperaturee,
     @SerializedName("Day")
     val day: WeatherStat,
     @SerializedName("Night")
     val night: WeatherStat
 )
 
-data class Temperature(
+data class Temperaturee(
     @SerializedName("Minimum")
     val min: Value,
     @SerializedName("Maximum")
