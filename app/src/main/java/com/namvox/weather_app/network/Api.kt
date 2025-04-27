@@ -9,7 +9,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-const val API_KEY = "p3elovgU6hehg3gmRwwf1zeTl3x8Klgc"
+const val API_KEY = "IY36204QgjhIcZCm3AfJrIeLAGJtKVhs"
 
 interface Api {
     @GET("locations/v1/cities/search")
